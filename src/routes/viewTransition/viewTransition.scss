@@ -1,0 +1,58 @@
+.view-transition {
+    &-btn {
+        cursor: pointer;
+        display: block;
+        border-radius: 50%;
+        width: 33px;
+        height: 33px;
+        border: 0px;
+
+        background-color: rgb(88 196 220);
+        color: #ffffff;
+        font-weight: 500;
+        transition: all .2s ease-in-out;
+        text-align: center;
+
+        &:hover {
+            background-color: rgb(23, 212, 255);
+        }
+    }
+
+    &-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 2px 5px 15px 1px #000000;
+
+        &__square {
+            border-radius: 5px;
+            height: 100px;
+            width: 100%;
+            background: linear-gradient(45deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+        }
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        &__text {
+            h3 {
+                margin: 0px;
+            }
+        }
+    }
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 500px;
+    }
+}

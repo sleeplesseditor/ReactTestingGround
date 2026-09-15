@@ -10,63 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogsIndexRouteImport } from './routes/blogs/index'
-import { Route as BlogsNewRouteImport } from './routes/blogs/new'
-import { Route as BlogsIdRouteImport } from './routes/blogs/$id'
+import { Route as ViewTransitionIndexRouteImport } from './routes/viewTransition/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogsIndexRoute = BlogsIndexRouteImport.update({
-  id: '/blogs/',
-  path: '/blogs/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsNewRoute = BlogsNewRouteImport.update({
-  id: '/blogs/new',
-  path: '/blogs/new',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsIdRoute = BlogsIdRouteImport.update({
-  id: '/blogs/$id',
-  path: '/blogs/$id',
+const ViewTransitionIndexRoute = ViewTransitionIndexRouteImport.update({
+  id: '/viewTransition/',
+  path: '/viewTransition/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blogs/$id': typeof BlogsIdRoute
-  '/blogs/new': typeof BlogsNewRoute
-  '/blogs/': typeof BlogsIndexRoute
+  '/viewTransition/': typeof ViewTransitionIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blogs/$id': typeof BlogsIdRoute
-  '/blogs/new': typeof BlogsNewRoute
-  '/blogs': typeof BlogsIndexRoute
+  '/viewTransition': typeof ViewTransitionIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blogs/$id': typeof BlogsIdRoute
-  '/blogs/new': typeof BlogsNewRoute
-  '/blogs/': typeof BlogsIndexRoute
+  '/viewTransition/': typeof ViewTransitionIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blogs/$id' | '/blogs/new' | '/blogs/'
+  fullPaths: '/' | '/viewTransition/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blogs/$id' | '/blogs/new' | '/blogs'
-  id: '__root__' | '/' | '/blogs/$id' | '/blogs/new' | '/blogs/'
+  to: '/' | '/viewTransition'
+  id: '__root__' | '/' | '/viewTransition/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlogsIdRoute: typeof BlogsIdRoute
-  BlogsNewRoute: typeof BlogsNewRoute
-  BlogsIndexRoute: typeof BlogsIndexRoute
+  ViewTransitionIndexRoute: typeof ViewTransitionIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -78,25 +58,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blogs/': {
-      id: '/blogs/'
-      path: '/blogs'
-      fullPath: '/blogs/'
-      preLoaderRoute: typeof BlogsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs/new': {
-      id: '/blogs/new'
-      path: '/blogs/new'
-      fullPath: '/blogs/new'
-      preLoaderRoute: typeof BlogsNewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs/$id': {
-      id: '/blogs/$id'
-      path: '/blogs/$id'
-      fullPath: '/blogs/$id'
-      preLoaderRoute: typeof BlogsIdRouteImport
+    '/viewTransition/': {
+      id: '/viewTransition/'
+      path: '/viewTransition'
+      fullPath: '/viewTransition/'
+      preLoaderRoute: typeof ViewTransitionIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -104,9 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlogsIdRoute: BlogsIdRoute,
-  BlogsNewRoute: BlogsNewRoute,
-  BlogsIndexRoute: BlogsIndexRoute,
+  ViewTransitionIndexRoute: ViewTransitionIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
