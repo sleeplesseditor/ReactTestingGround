@@ -55,4 +55,83 @@
         gap: 10px;
         width: 500px;
     }
+
+    &-interactions {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+
+        .direction-dropdown {
+            width: 175px;
+            cursor: pointer;
+        }
+    }
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 250ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-new(.from-right) {
+  --offset: 100%;
+  animation-name: slide-in;
+}
+
+::view-transition-new(.from-left) {
+  --offset: -100%;
+  animation-name: slide-in;
+}
+
+::view-transition-new(.from-above) {
+  --offset: -100%;
+  animation-name: slide-down;
+}
+
+::view-transition-old(.to-right) {
+  --offset: 100%;
+  animation-name: slide-out;
+}
+
+::view-transition-old(.to-left) {
+  --offset: -100%;
+  animation-name: slide-out;
+}
+
+::view-transition-old(.to-below) {
+  --offset: 100%;
+  animation-name: slide-down-out;
+}
+
+
+// Animations
+@keyframes slide-in {
+  from {
+    transform: translateX(var(--offset));
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out {
+  to {
+    transform: translateX(var(--offset));
+    opacity: 0;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(var(--offset));
+    opacity: 0;
+  }
+}
+
+
+@keyframes slide-down-out {
+  to {
+    transform: translateY(var(--offset));
+    opacity: 0;
+  }
 }
