@@ -33,6 +33,7 @@ const NavbarMenu = () => {
                     <ul className="links-container">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/viewTransition">viewTransition</Link></li>
+                        <li><Link to="/fragmentRefs">Fragment Refs</Link></li>
                     </ul>
                 </nav>
             )}

@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FragmentRefsIndexRouteImport } from './routes/fragmentRefs/index'
 import { Route as ViewTransitionIndexRouteImport } from './routes/viewTransition/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FragmentRefsIndexRoute = FragmentRefsIndexRouteImport.update({
+  id: '/fragmentRefs/',
+  path: '/fragmentRefs/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ViewTransitionIndexRoute = ViewTransitionIndexRouteImport.update({
@@ -25,27 +31,31 @@ const ViewTransitionIndexRoute = ViewTransitionIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/fragmentRefs/': typeof FragmentRefsIndexRoute
   '/viewTransition/': typeof ViewTransitionIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/fragmentRefs': typeof FragmentRefsIndexRoute
   '/viewTransition': typeof ViewTransitionIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/fragmentRefs/': typeof FragmentRefsIndexRoute
   '/viewTransition/': typeof ViewTransitionIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/viewTransition/'
+  fullPaths: '/' | '/fragmentRefs/' | '/viewTransition/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/viewTransition'
-  id: '__root__' | '/' | '/viewTransition/'
+  to: '/' | '/fragmentRefs' | '/viewTransition'
+  id: '__root__' | '/' | '/fragmentRefs/' | '/viewTransition/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FragmentRefsIndexRoute: typeof FragmentRefsIndexRoute
   ViewTransitionIndexRoute: typeof ViewTransitionIndexRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fragmentRefs/': {
+      id: '/fragmentRefs/'
+      path: '/fragmentRefs'
+      fullPath: '/fragmentRefs/'
+      preLoaderRoute: typeof FragmentRefsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/viewTransition/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FragmentRefsIndexRoute: FragmentRefsIndexRoute,
   ViewTransitionIndexRoute: ViewTransitionIndexRoute,
 }
 export const routeTree = rootRouteImport
