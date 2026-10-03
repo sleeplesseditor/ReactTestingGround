@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router';
+import NavbarMenu from '@components/Header/NavbarMenu';
 import './Header.scss';
 
 const Header = () => {
@@ -7,9 +8,7 @@ const Header = () => {
             <div className="navbar-title">
                 <h3>React Testing Ground</h3>
             </div>
-            <div className="navbar-links">
-                <Link to="/viewTransition">viewTransition</Link>
-            </div>
+            <NavbarMenu />
         </div>
     )
 }

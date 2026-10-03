@@ -25,7 +25,6 @@ function RouteComponent() {
     const [transitionType, setTransitionType] = useState<string>('none');
 
     const changeValue = (e: any) => {
-        console.log('e', e.value)
         setFadeInDirection(e);
         setTransitionType(e.value);
     };
