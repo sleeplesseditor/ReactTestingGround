@@ -46,9 +46,20 @@ ul {
   padding-inline-start: 20px;
 }
 
-.fragment-refs-container {
-    height: 200px;
-    overflow: scroll;
-    border: 1px solid black;
-    width: 300px;
+.fragment-refs {
+    &-container {
+        height: 200px;
+        overflow: scroll;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 300px;
+        box-shadow: 2px 5px 15px 1px #000000;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+    }
 }

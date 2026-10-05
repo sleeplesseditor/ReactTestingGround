@@ -54,6 +54,20 @@
         align-items: center;
         gap: 10px;
         width: 500px;
+
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 500px;
+        height: 250px;
+        padding: 10px;
+        box-shadow: 2px 5px 15px 1px #000000;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
     }
 
     &-interactions {
