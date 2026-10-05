@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import './fragmentRefs.scss';
-import InView from './InView';
+import InView from '@helpers/InView';
 
 export const Route = createFileRoute('/fragmentRefs/')({
   component: RouteComponent,
