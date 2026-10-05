@@ -24,18 +24,6 @@ function RouteComponent() {
 
     const handleLinkClick = (link: string) => navigate({ to: link });
 
-    const options = {
-        replace: (domNode: any) => {
-            console.log('DOM', domNode)
-            // Check if the current node is an element and has the target tag name
-            if (domNode.type === 'tag' && domNode.name === 'fragment') {
-                return '<></>';
-            } else {
-                return domNode
-            }
-        }
-        };
-
     return (
         <div className="page-container">
             <div className="main-page__container">
