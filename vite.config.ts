@@ -13,6 +13,9 @@ export default defineConfig({
     react()
   ],
   base: '/ReactTestingGround/',
+  build: {
+    outDir: 'dist',
+  },
   resolve: {
     alias: {
       "@components": path.resolve(__dirname, "./src/components"),
