@@ -27,7 +27,6 @@ export function Video({video}: {video: any}): any {
 }
 
 export function VideoPlaceholder() {
-  const video = {image: 'loading'};
   return (
     <div className="view-transition-card">
       <div className="view-transition-card__square loading"></div>
@@ -63,7 +62,7 @@ export function useLazyVideoData() {
 
 
 function LazyVideo() {
-  const video = useLazyVideoData();
+  useLazyVideoData();
   return <Card />;
 }
 
