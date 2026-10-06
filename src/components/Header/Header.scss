@@ -1,6 +1,6 @@
 .navbar {
     &-container {
-        background-color: #a7a7a7;;
+        background-color: #636363;;
         border-bottom: 1px solid #000000;
         padding: 10px;
         gap: 10px;
@@ -11,6 +11,8 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        position: sticky;
+        top: 0;
     }
 
     &-links {
@@ -33,10 +35,10 @@
         }
 
         position: absolute;
-        background-color: #a7a7a7;
+        background-color: #636363;
         right: 10px;
         border-radius: 5%;
-        border: 1px solid black;
+        border: 1px solid #444444;
         box-shadow: 5px 7px 10px 0px rgba(0,0,0,0.35);
         -webkit-box-shadow: 5px 7px 10px 0px rgba(0,0,0,0.35);
     }
@@ -52,10 +54,15 @@
 }
 
 .hamburger-btn {
-    background-color: #a7a7a7;
+    background-color: #636363;
     border: none;
-    color: #ffffff;
+    color: #cecece;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        color: #ffffff;
+    }
 
     span {
         font-size: 18px;

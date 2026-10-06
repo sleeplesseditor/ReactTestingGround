@@ -1,5 +1,12 @@
+html {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
 body {
   margin: 0;
+  background: linear-gradient(180deg,rgba(68, 68, 68, 1) 0%, rgba(18, 18, 18, 1) 100%);
 }
 
 h1,
@@ -39,7 +46,6 @@ p {
 .page-container {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(138deg,rgba(255, 255, 255, 1) 0%, rgba(237, 237, 237, 1) 35%, rgba(0, 0, 0, 1) 100%);
 }
 
 .demo {
@@ -65,7 +71,7 @@ p {
 
   &__item {
     background-color: #ffffff;
-    border: 1px solid black;
+    border: 1px solid #444444;
     padding: 20px 10px;
     width: 250px;
     border-radius: 5px;
@@ -108,4 +114,10 @@ p {
     align-items: center;
     height: 90vh;
   }
+}
+
+.demo-header {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 24px;
 }
