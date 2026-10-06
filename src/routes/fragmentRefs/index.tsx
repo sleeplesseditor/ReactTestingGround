@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import './fragmentRefs.scss';
 import InView from '@helpers/InView';
+import PageLayout from '@components/PageLayout/PageLayout';
 
 export const Route = createFileRoute('/fragmentRefs/')({
   component: RouteComponent,
@@ -11,6 +12,7 @@ function RouteComponent() {
   const [isVisible, setIsVisible] = React.useState(true);
 
   return (
+    <PageLayout>
     <div className="page-container">
       <div className="demo-container">
           <h3 className="demo-header">Fragment Refs</h3>
@@ -34,5 +36,6 @@ function RouteComponent() {
           </div>
         </div>
     </div>
+    </PageLayout>
   )
 }

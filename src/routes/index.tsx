@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useNavigate } from "@tanstack/react-router";
 import parse from "html-react-parser";
+import PageLayout from '@components/PageLayout/PageLayout';
 
 export const Route = createFileRoute('/')({
     component: RouteComponent
@@ -25,12 +26,13 @@ function RouteComponent() {
     const handleLinkClick = (link: string) => navigate({ to: link });
 
     return (
-        <div className="page-container">
-            <div className="main-page__container">
-                <div className="menu-card__container">
-                    {pageCards.map((cards) => {
-                        return (
-                            <div 
+        <PageLayout>
+            <div className="page-container">
+                <div className="main-page__container">
+                    <div className="menu-card__container">
+                        {pageCards.map((cards) => {
+                            return (
+                                <div 
                                 className="menu-card__item" 
                                 key={cards.link} 
                                 onClick={() => handleLinkClick(cards.link)}
@@ -43,5 +45,6 @@ function RouteComponent() {
                 </div>
             </div>
         </div>
+        </PageLayout>
     )
 }
